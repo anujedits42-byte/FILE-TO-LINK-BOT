@@ -2,7 +2,7 @@ from os import environ, getenv
 from Script import script
 
 # 🚀 __Bot Configuration__
-SESSION = environ.get('SESSION', 'Anujedit')  # Session name
+SESSION = environ.get('SESSION', 'file-to-link-bot'')  # Session name
 API_ID = int(environ.get('API_ID', '34724970'))
 API_HASH = environ.get('API_HASH', 'f240eae7c60e8e30c17203ab0e052f7e')
 BOT_TOKEN = environ.get('BOT_TOKEN', '8673437580:AAG1f0gCUbQ0lUD5BpozjhXg2OPLA8YSZFo')
