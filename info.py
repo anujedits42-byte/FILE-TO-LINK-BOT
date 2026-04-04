@@ -38,8 +38,8 @@ PUBLIC_FILE_STORE = environ.get('PUBLIC_FILE_STORE', True)
 BATCH_PROTECT_CONTENT = environ.get('BATCH_PROTECT_CONTENT', False)
 
 # 🔗 __Shortlink Configuration__
-SHORTLINK_URL = environ.get('SHORTLINK_URL', '')
-SHORTLINK_API = environ.get('SHORTLINK_API', '')
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'shrink.pe')
+SHORTLINK_API = environ.get('SHORTLINK_API', '372b23dabae021f93ca15408fc7a674ec4ec2ce3')
 
 # 💾 __Database Configuration__
 DB_URL = environ.get('DATABASE_URI', "mongodb+srv://Anujedit:Anujedit@cluster0.7cs2nhd.mongodb.net/?appName=Cluster0")
