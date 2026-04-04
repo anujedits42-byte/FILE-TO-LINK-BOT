@@ -5,10 +5,10 @@ from Script import script
 SESSION = environ.get('SESSION', 'Anujedit')  # Session name
 API_ID = int(environ.get('API_ID', '34724970'))
 API_HASH = environ.get('API_HASH', 'f240eae7c60e8e30c17203ab0e052f7e')
-BOT_TOKEN = environ.get('BOT_TOKEN', '8613755565:AAGiJMEkCddTHntpLBY01Pe7iZZMtGvHEbA')
+BOT_TOKEN = environ.get('BOT_TOKEN', '8673437580:AAG1f0gCUbQ0lUD5BpozjhXg2OPLA8YSZFo')
 
 # 👑 __Owner & Admins__
-ADMINS = [int(i) for i in environ.get('ADMINS', '7521421400').split()]
+ADMINS = [int(i) for i in environ.get('ADMINS', '7892805795').split()]
 AUTH_CHANNEL = [int(i) for i in environ.get("AUTH_CHANNEL", "-1003616967390").split()]
 OWNER_USERNAME = environ.get("OWNER_USERNAME", 'arafta_hindi_dubbed_webseries')
 BOT_USERNAME = environ.get("BOT_USERNAME", 'arafta_hindi_dubbed_webseries')
