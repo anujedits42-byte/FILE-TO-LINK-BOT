@@ -78,7 +78,7 @@ NO_PORT = str(environ.get("NO_PORT", "true")).lower() in ("true", "1", "yes")
 HAS_SSL = str(environ.get("HAS_SSL", "true")).lower() in ("true", "1", "yes")
 
 # URL Generation
-BIND_ADDRESS = environ.get("WEB_SERVER_BIND_ADDRESS", "3430f722-7e7f-4cf5-a7cc-aa9e1d760ffe-00-2d3bzhk8blnpl.pike.replit.dev")   ##without https:// paste the base url here 
+BIND_ADDRESS = environ.get("WEB_SERVER_BIND_ADDRESS", "file-to-link-bot-1-jmj7.onrender.com")   ##without https:// paste the base url here 
 FQDN = environ.get("FQDN", BIND_ADDRESS)
 
 if not FQDN.startswith("http"):
