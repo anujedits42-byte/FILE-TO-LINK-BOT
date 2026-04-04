@@ -2,6 +2,6 @@ services:
   - type: web
     name: filetolinkrx-bot
     env: docker
-    plan: starter
+    plan: Free
     region: oregon
     dockerfilePath: Dockerfile
