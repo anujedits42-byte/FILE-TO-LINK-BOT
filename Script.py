@@ -1,5 +1,5 @@
 class script(object):
-    START_TXT = """<b>Hᴇʏ {}, </b>\n\n<blockquote><i>Sᴇɴᴅ ᴍᴇ ᴀ ꜰɪʟᴇ ᴏʀ ᴀᴅᴅ ᴍᴇ ᴀs ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴀɴʏ ᴄʜᴀɴɴᴇʟ ᴛᴏ ɪɴꜱᴛᴀɴᴛʟʏ ɢᴇɴᴇʀᴀᴛᴇ ꜰɪʟᴇ ʟɪɴᴋs.Iɴᴠɪᴛᴇ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ I’ʟʟ ɪɴꜱᴛᴀɴᴛʟʏ ᴄʀᴇᴀᴛᴇ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋs ꜰᴏʀ ᴀɴʏ ᴍᴇᴅɪᴀ ʏᴏᴜ ꜱʜᴀʀᴇ. I’ʟʟ ᴀʟꜱᴏ ᴀᴅᴅ ᴛʜᴇ ʀɪɢʜᴛ ʙᴜᴛᴛᴏɴs ᴛᴏ ᴇᴀᴄʜ ᴘᴏꜱᴛ ᴡɪᴛʜ ᴀ Uʀʟ, ᴍᴀᴋɪɴɢ ᴀᴄᴄᴇꜱꜱ ꜱᴇᴀᴍʟᴇꜱꜱ.</i></blockquote>\n\n<blockquote><a href=https://t.me/anujedits76>➜ Add To Channel</a></blockquote>"""
+    START_TXT = """<b>Hᴇʏ {}, </b>\n\n<blockquote><i>Sᴇɴᴅ ᴍᴇ ᴀ ꜰɪʟᴇ ᴏʀ ᴀᴅᴅ ᴍᴇ ᴀs ᴀɴ ᴀᴅᴍɪɴ ᴛᴏ ᴀɴʏ ᴄʜᴀɴɴᴇʟ ᴛᴏ ɪɴꜱᴛᴀɴᴛʟʏ ɢᴇɴᴇʀᴀᴛᴇ ꜰɪʟᴇ ʟɪɴᴋs.\n\nIɴᴠɪᴛᴇ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ I’ʟʟ ɪɴꜱᴛᴀɴᴛʟʏ ᴄʀᴇᴀᴛᴇ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋs ꜰᴏʀ ᴀɴʏ ᴍᴇᴅɪᴀ ʏᴏᴜ ꜱʜᴀʀᴇ. I’ʟʟ ᴀʟꜱᴏ ᴀᴅᴅ ᴛʜᴇ ʀɪɢʜᴛ ʙᴜᴛᴛᴏɴs ᴛᴏ ᴇᴀᴄʜ ᴘᴏꜱᴛ ᴡɪᴛʜ ᴀ Uʀʟ, ᴍᴀᴋɪɴɢ ᴀᴄᴄᴇꜱꜱ ꜱᴇᴀᴍʟᴇꜱꜱ.</i></blockquote>\n\n<blockquote><a href=https://t.me/anujedits76>➜ Add To Channel</a></blockquote>"""
 
     RESTART_TXT = """\n<b>Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ !\n\n📅 Dᴀᴛᴇ : <code>{}</code>\n⏰ Tɪᴍᴇ : <code>{}</code>\n🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code>\n🛠️ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: <code>v4.6.00 [ Sᴛᴀʙʟᴇ ]</code></b>"""
 
