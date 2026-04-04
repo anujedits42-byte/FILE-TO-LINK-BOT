@@ -73,12 +73,12 @@ NAME = environ.get('name', 'Anujedits76')
 ON_HEROKU = 'DYNO' in environ
 APP_NAME = environ.get('APP_NAME') if ON_HEROKU else None
 
-PORT = int(environ.get('PORT', 2626))
+PORT = int(environ.get('PORT', 5000))
 NO_PORT = str(environ.get("NO_PORT", "true")).lower() in ("true", "1", "yes")
 HAS_SSL = str(environ.get("HAS_SSL", "true")).lower() in ("true", "1", "yes")
 
 # URL Generation
-BIND_ADDRESS = environ.get("WEB_SERVER_BIND_ADDRESS", "fILE-TO-LINK-BOT.onrender.com")   ##without https:// paste the base url here 
+BIND_ADDRESS = environ.get("WEB_SERVER_BIND_ADDRESS", "fILE-TO-LINK-BOT.replit.com")   ##without https:// paste the base url here 
 FQDN = environ.get("FQDN", BIND_ADDRESS)
 
 if not FQDN.startswith("http"):
