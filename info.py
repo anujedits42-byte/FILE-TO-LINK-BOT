@@ -49,8 +49,8 @@ DB_NAME = environ.get('DATABASE_NAME', "Anujedit")
 QR_CODE = environ.get('QR_CODE', 'https://ibb.co/mVkSySr7')
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://ibb.co/mVkSySr7")
 AUTH_PICS = environ.get('AUTH_PICS', 'https://ibb.co/mVkSySr7')
-PICS = environ.get('PICS', 'https://ibb.co/mVkSySr7')
-FILE_PIC = environ.get('FILE_PIC', 'https://ibb.co/mVkSySr7')
+PICS = environ.get('PICS', 'https://files.catbox.moe/b6vtfh.jpg')
+FILE_PIC = environ.get('FILE_PIC', 'https://files.catbox.moe/b6vtfh.jpg')
 
 # 📝 __Captions__
 FILE_CAPTION = environ.get('FILE_CAPTION', script.CAPTION)
@@ -67,7 +67,7 @@ VERIFY_EXPIRE = int(environ.get('VERIFY_EXPIRE', 60))  # Hours
 # ⚙️ __Worker & App Config__
 WORKERS = int(environ.get('WORKERS', 10))
 MULTI_CLIENT = False
-NAME = environ.get('name', 'Anujedits')
+NAME = environ.get('name', 'Anujedits76')
 
 # 🌐 __Web Server__
 ON_HEROKU = 'DYNO' in environ
