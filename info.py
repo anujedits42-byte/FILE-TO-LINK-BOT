@@ -9,22 +9,22 @@ BOT_TOKEN = environ.get('BOT_TOKEN', '8673437580:AAG1f0gCUbQ0lUD5BpozjhXg2OPLA8Y
 
 # 👑 __Owner & Admins__
 ADMINS = [int(i) for i in environ.get('ADMINS', '7892805795').split()]
-AUTH_CHANNEL = [int(i) for i in environ.get("AUTH_CHANNEL", "-1003616967390").split()]
-OWNER_USERNAME = environ.get("OWNER_USERNAME", 'arafta_hindi_dubbed_webseries')
-BOT_USERNAME = environ.get("BOT_USERNAME", 'arafta_hindi_dubbed_webseries')
+AUTH_CHANNEL = [int(i) for i in environ.get("AUTH_CHANNEL", "-1003515041061").split()]
+OWNER_USERNAME = environ.get("OWNER_USERNAME", 'anujedits76')
+BOT_USERNAME = environ.get("BOT_USERNAME", 'file_to_link_ak_bot')
 
 # 🔗 __Channel & Support Links__
-CHANNEL = environ.get('CHANNEL', 'https://t.me/arafta_hindi_dubbed_webseries')
-SUPPORT = environ.get('SUPPORT', 'https://t.me/arafta_hindi_dubbed_webseries')
-HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', 'https://t.me/arafta_hindi_dubbed_webseries')
-HOW_TO_OPEN = environ.get('HOW_TO_OPEN', 'https://t.me/arafta_hindi_dubbed_webseries')
+CHANNEL = environ.get('CHANNEL', 'https://t.me/log_channel_a')
+SUPPORT = environ.get('SUPPORT', 'https://t.me/log_channel_a')
+HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', 'https://t.me/log_channel_a/238')
+HOW_TO_OPEN = environ.get('HOW_TO_OPEN', 'https://t.me/log_channel_a/238')
 
 # 📢 __Log Channels__
-BIN_CHANNEL = int(environ.get("BIN_CHANNEL", '-1003616967390'))
-LOG_CHANNEL = int(environ.get("LOG_CHANNEL", '-1003616967390'))
-PREMIUM_LOGS = int(environ.get("PREMIUM_LOGS", '-1003616967390'))
-VERIFIED_LOG = int(environ.get('VERIFIED_LOG', '-1003616967390'))
-SUPPORT_GROUP = int(environ.get("SUPPORT_GROUP", "-1003616967390"))
+BIN_CHANNEL = int(environ.get("BIN_CHANNEL", '-1003515041061'))
+LOG_CHANNEL = int(environ.get("LOG_CHANNEL", '-1003515041061'))
+PREMIUM_LOGS = int(environ.get("PREMIUM_LOGS", '-1003515041061'))
+VERIFIED_LOG = int(environ.get('VERIFIED_LOG', '-1003515041061'))
+SUPPORT_GROUP = int(environ.get("SUPPORT_GROUP", "-1003791508617"))
 
 # ✅ __Feature Toggles__
 VERIFY = False  # Enable user verification
