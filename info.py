@@ -46,8 +46,8 @@ DB_URL = environ.get('DATABASE_URI', "mongodb+srv://Anujedit:Anujedit@cluster0.7
 DB_NAME = environ.get('DATABASE_NAME', "Anujedit")
 
 # 📸 __Media & Images__
-QR_CODE = environ.get('QR_CODE', 'https://i.ibb.co/VWZ0RPxX/x.jpg')
-VERIFY_IMG = environ.get("VERIFY_IMG", "https://ibb.co/mVkSySr7")
+QR_CODE = environ.get('QR_CODE', 'https://files.catbox.moe/6hyvy7.jpg')
+VERIFY_IMG = environ.get("VERIFY_IMG", "https://files.catbox.moe/6hyvy7.jpg")
 AUTH_PICS = environ.get('AUTH_PICS', 'https://ibb.co/mVkSySr7')
 PICS = environ.get('PICS', 'https://ibb.co/mVkSySr7')
 FILE_PIC = environ.get('FILE_PIC', 'https://ibb.co/mVkSySr7')
