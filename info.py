@@ -79,7 +79,7 @@ SLEEP_THRESHOLD = get_int(environ.get('SLEEP_THRESHOLD', 60))
 RATE_LIMIT_TIMEOUT = get_int(environ.get("RATE_LIMIT_TIMEOUT", 600))
 MAX_FILES = get_int(environ.get("MAX_FILES", 50))
 VERIFY_EXPIRE = get_int(environ.get('VERIFY_EXPIRE', 60))
-
+ON_HEROKU = get_bool(environ.get('ON_HEROKU', False))
 # ⚙️ __Worker & App Config__
 WORKERS = get_int(environ.get('WORKERS', 10))
 MULTI_CLIENT = False
