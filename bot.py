@@ -13,6 +13,10 @@ import pyrogram.utils  # Import pyrogram.utils explicitly
 # Patch pyrogram.utils.get_peer_type to handle newer peer IDs
 def get_peer_type_new(peer_id: int) -> str:
     peer_id_str = str(peer_id)
+
+    if peer_id == -1003791508617:
+        return "channel"
+        
     if not peer_id_str.startswith("-"):
         return "user"
     elif peer_id_str.startswith("-100"):
