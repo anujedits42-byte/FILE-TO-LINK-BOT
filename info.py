@@ -84,7 +84,7 @@ ON_HEROKU = get_bool(environ.get('ON_HEROKU', False))
 WORKERS = get_int(environ.get('WORKERS', 10))
 MULTI_CLIENT = False
 NAME = environ.get('name', 'Anujedits76')
-
+ON_HEROKU = get_bool(environ.get('ON_HEROKU', False))
 # 🌐 __Web Server__
 PORT = get_int(environ.get('PORT', 5000))
 NO_PORT = get_bool(environ.get("NO_PORT", "true"))
