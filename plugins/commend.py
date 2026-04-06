@@ -18,17 +18,26 @@ import logging
 logger = logging.getLogger(__name__)
 BATCH_FILES = {}  
 
-@Client.on_message(filters.command("start") & filters.incoming)
+   @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     user_id = message.from_user.id
     mention = message.from_user.mention
     me2 = (await client.get_me()).mention
-    if FSUB:
-        if not await is_user_joined(client, message):
-            return
+
+    # ✅ FIXED FORCE SUB (MAIN BUG)
+    if FSUB and not await is_user_joined(client, message):
+        buttons = [[
+            InlineKeyboardButton("📢 Join Channel", url=CHANNEL)
+        ]]
+        return await message.reply_text(
+            "❌ Pehle channel join karo phir /start use karo.",
+            reply_markup=InlineKeyboardMarkup(buttons)
+        )
+
     if not await db.is_user_exist(user_id):
         await db.add_user(user_id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(me2, user_id, mention))
+
     if len(message.command) == 1 or message.command[1] == "start":
         buttons = [[
             InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇᴅ •', url=CHANNEL),
