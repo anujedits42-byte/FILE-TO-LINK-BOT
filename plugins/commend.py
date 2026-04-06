@@ -1,3 +1,23 @@
+import os, random, asyncio, time, re, pytz
+from Script import script
+from database.users_db import db
+from pyrogram import Client, filters, enums
+from pyrogram.errors import *
+from pyrogram.types import *
+from info import BOT_USERNAME, URL, BATCH_PROTECT_CONTENT, ADMINS, PROTECT_CONTENT, OWNER_USERNAME, SUPPORT, PICS, FILE_PIC, CHANNEL, VERIFIED_LOG, LOG_CHANNEL, FSUB, BIN_CHANNEL, VERIFY_EXPIRE, BATCH_FILE_CAPTION, FILE_CAPTION, VERIFY_IMG, QR_CODE
+from datetime import datetime
+from web.utils.file_properties import get_hash
+from utils import get_readable_time, verify_user, check_token, get_size
+from web.utils import StartTime, __version__
+from plugins.rexbots import is_user_joined, rx_verification, rx_x_verification
+import os
+import json
+import asyncio
+import logging
+
+logger = logging.getLogger(__name__)
+BATCH_FILES = {}
+
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
 
