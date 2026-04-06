@@ -23,21 +23,12 @@ async def start(client, message):
     user_id = message.from_user.id
     mention = message.from_user.mention
     me2 = (await client.get_me()).mention
-
-    # ✅ FIXED FORCE SUB (MAIN BUG)
-    if FSUB and not await is_user_joined(client, message):
-        buttons = [[
-            InlineKeyboardButton("📢 Join Channel", url=CHANNEL)
-        ]]
-        return await message.reply_text(
-            "❌ Pehle channel join karo phir /start use karo.",
-            reply_markup=InlineKeyboardMarkup(buttons)
-        )
-
+    if FSUB:
+        if not await is_user_joined(client, message):
+            return
     if not await db.is_user_exist(user_id):
         await db.add_user(user_id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(me2, user_id, mention))
-
     if len(message.command) == 1 or message.command[1] == "start":
         buttons = [[
             InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇᴅ •', url=CHANNEL),
@@ -150,7 +141,7 @@ async def cb_handler(client, query):
         await query.message.delete()
     elif query.data == "about":
         buttons = [[
-	    InlineKeyboardButton('💻', url='https://t.me/log_channel_a')
+	    InlineKeyboardButton('💻', url='https://t.me/cantarellabots')
 	],[
             InlineKeyboardButton('• ʜᴏᴍᴇ •', callback_data='start'),
 	    InlineKeyboardButton('• ᴄʟᴏsᴇ •', callback_data='close_data')
@@ -358,7 +349,7 @@ async def delete_files_list(client, message):
 @Client.on_message(filters.command("about"))
 async def about(client, message):
     buttons = [[
-       InlineKeyboardButton('💻', url='https://t.me/log_channel_a')
+       InlineKeyboardButton('💻', url='https://t.me/cantarellabots')
     ],[
        InlineKeyboardButton('• ᴄʟᴏsᴇ •', callback_data='close_data')
     ]]
