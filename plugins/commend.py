@@ -1,38 +1,35 @@
-import os, random, asyncio, time, re, pytz
-from Script import script
-from database.users_db import db
-from pyrogram import Client, filters, enums
-from pyrogram.errors import *
-from pyrogram.types import *
-from info import BOT_USERNAME, URL, BATCH_PROTECT_CONTENT, ADMINS, PROTECT_CONTENT, OWNER_USERNAME, SUPPORT, PICS, FILE_PIC, CHANNEL, VERIFIED_LOG, LOG_CHANNEL, FSUB, BIN_CHANNEL, VERIFY_EXPIRE, BATCH_FILE_CAPTION, FILE_CAPTION, VERIFY_IMG, QR_CODE
-from datetime import datetime
-from web.utils.file_properties import get_hash
-from utils import get_readable_time, verify_user, check_token, get_size
-from web.utils import StartTime, __version__
-from plugins.rexbots import is_user_joined, rx_verification, rx_x_verification
-import os
-import json
-import asyncio
-import logging
-
-logger = logging.getLogger(__name__)
-BATCH_FILES = {}  
-
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
 
-    if not message.from_user:
-        return
-	
-    user_id = message.from_user.id
-    mention = message.from_user.mention
-    me2 = (await client.get_me()).mention
+    # 1️⃣ Ignore anonymous or invalid users
+    user = message.from_user
+    if not user or not user.id:
+        return await message.reply_text("Cannot register anonymous user.")
+
+    user_id = user.id
+    mention = user.mention
+
+    # 2️⃣ Get bot mention safely (avoid FloodWait)
+    try:
+        me2 = (await client.get_me()).mention
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        me2 = (await client.get_me()).mention
+
+    # 3️⃣ FSUB check (if enabled)
     if FSUB:
         if not await is_user_joined(client, message):
             return
-    if not await db.is_user_exist(user_id):
-        await db.add_user(user_id, message.from_user.first_name)
-        await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(me2, user_id, mention))
+
+    # 4️⃣ Add user safely to DB
+    try:
+        if not await db.is_user_exist(user_id):
+            await db.add_user(user_id, user.first_name)
+            await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(me2, user_id, mention))
+    except Exception as e:
+        print(f"User registration failed: {e}")
+
+    # 5️⃣ Handle normal /start
     if len(message.command) == 1 or message.command[1] == "start":
         buttons = [[
             InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇᴅ •', url=CHANNEL),
@@ -42,48 +39,37 @@ async def start(client, message):
             InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
+        return await message.reply_photo(
             photo=PICS,
-            caption=script.START_TXT.format(message.from_user.mention, BOT_USERNAME),
+            caption=script.START_TXT.format(user.mention, BOT_USERNAME),
             reply_markup=reply_markup
         )
-        return
 
-    # ✅ Handle /start file_<id>
+    # 6️⃣ Handle /start file_<id>
     msg = message.command[1]
-
     if msg.startswith("file_"):
         _, file_id = msg.split("_", 1)
-
-        # Get the original message from BIN_CHANNEL
         original_message = await client.get_messages(int(BIN_CHANNEL), int(file_id))
-
-        # Detect media
         media = original_message.document or original_message.video or original_message.audio
         caption = None
-
         if media:
             file_name = media.file_name or "Unnamed File"
             file_size = get_size(media.file_size)
             caption = FILE_CAPTION.format(CHANNEL, file_name)
-
-        # Send with caption and protect_content
         return await client.copy_message(
-            chat_id=message.from_user.id,
+            chat_id=user_id,
             from_chat_id=int(BIN_CHANNEL),
             message_id=int(file_id),
             caption=caption,
             protect_content=PROTECT_CONTENT
-	)
+        )
 
-
-
+    # 7️⃣ Handle BATCH-<id>
     if msg.startswith("BATCH-"):
         file_id = msg.split("-", 1)[1]
-        user_id = message.from_user.id
         verified = await rx_x_verification(client, message)
         if not verified:
-            return  # If not verified, exit
+            return
         sts = await message.reply("<b>Please wait...</b>")
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -111,21 +97,19 @@ async def start(client, message):
                 except Exception as e:
                     logger.warning(f"Caption formatting error: {e}")
                     f_caption = f_caption or title or ""
-
             if not f_caption:
                 f_caption = title or "Untitled"
             try:
                 await client.send_cached_media(
-                    chat_id=message.from_user.id,
+                    chat_id=user_id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=BATCH_PROTECT_CONTENT
                 )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                logger.warning(f"⏳ FloodWait: {e.x}s")
                 await client.send_cached_media(
-                    chat_id=message.from_user.id,
+                    chat_id=user_id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=BATCH_PROTECT_CONTENT
@@ -133,9 +117,7 @@ async def start(client, message):
             except Exception as e:
                 logger.error(f"❌ Failed to send media: {e}", exc_info=True)
                 continue
-
             await asyncio.sleep(1)
-
         await sts.delete()
         return
 	    
