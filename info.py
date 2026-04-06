@@ -92,7 +92,7 @@ HAS_SSL = get_bool(environ.get("HAS_SSL", "true"))
 
 # URL Generation
 import os as _os
-_default_domain = _os.environ.get("REPLIT_DEV_DOMAIN", "file-to-link-bot-1-jmj7.onrender.com")
+_default_domain = _os.environ.get("REPLIT_DEV_DOMAIN", "https://file-to-link-bot-6.onrender.com")
 BIND_ADDRESS = environ.get("WEB_SERVER_BIND_ADDRESS", _default_domain)
 FQDN = environ.get("FQDN", BIND_ADDRESS)
 
