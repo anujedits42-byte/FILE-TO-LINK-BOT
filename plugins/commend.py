@@ -20,6 +20,10 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
+
+    if not message.from_user:
+        return
+	
     user_id = message.from_user.id
     mention = message.from_user.mention
     me2 = (await client.get_me()).mention
