@@ -66,7 +66,7 @@ QR_CODE = environ.get('QR_CODE', 'https://ibb.co/mVkSySr7')
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://ibb.co/mVkSySr7")
 AUTH_PICS = environ.get('AUTH_PICS', 'https://ibb.co/mVkSySr7')
 PICS = environ.get('PICS', 'https://o.uguu.se/SOCdjMHV.jpg')
-FILE_PIC = environ.get('FILE_PIC', 'https://files.catbox.moe/b6vtfh.jpg')
+FILE_PIC = environ.get('FILE_PIC', 'https://o.uguu.se/SOCdjMHV.jpg')
 
 # 📝 __Captions__
 FILE_CAPTION = environ.get('FILE_CAPTION', script.CAPTION)
